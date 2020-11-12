@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cat logo.txt
-
+cat logo.txt && \
+cat version.txt
