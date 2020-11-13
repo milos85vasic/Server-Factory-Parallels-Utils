@@ -1,5 +1,6 @@
 #!/bin/sh
 
 cat logo.txt && \
-cat version.txt && \
+cat version.txt
+
 echo ""
