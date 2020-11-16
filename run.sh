@@ -2,6 +2,7 @@
 
 cat logo.txt && \
 cat version.txt
+echo ""
 
 machine=$1
 echo "Checking system image availability"
