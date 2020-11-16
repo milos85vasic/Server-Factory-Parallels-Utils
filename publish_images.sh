@@ -17,7 +17,7 @@ if test -e "$image_location_settings"; then
 
     if test -e "$image_sync_script"; then
 
-      if sh "$image_sync_script" "$source/Compressed/" "Images/Qemu"; then
+      if sh "$image_sync_script" "$source/Compressed/" "Images/Parallels"; then
 
         echo "Sync. completed"
       else
