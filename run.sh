@@ -19,6 +19,83 @@ else
   if test -e "$image_location_settings"; then
 
     image_location=$(cat "$image_location_settings")/Uncompressed
+    if test -e "$image_location"; then
+
+      echo "Images location search path: $image_location"
+      parent="$(basename "$(dirname "$image")")"
+      if ! test -e "$image"; then
+        if ! mkdir -p "$parent"; then
+
+          echo "ERROR: $parent directory could not be created"
+          exit 1
+        fi
+      fi
+
+      system=$(basename "$image")
+      obtain_image="$image_location/$system"
+
+      echo "Looking for image: $obtain_image"
+      if test -e "$obtain_image"; then
+
+        echo "$obtain_image: Found, deploying to: $image"
+      else
+
+        echo "WARNING: $obtain_image has not been found"
+        echo "Downloading: $system to $obtain_image"
+
+        if test -e "$image_provider_settings"; then
+
+          provider_url=$(cat "$image_provider_settings")
+          url="$provider_url/Images/Parallels/$system"
+          download_destination="/tmp"
+          if wget -P "$download_destination" "$url"; then
+
+            echo "Image downloaded"
+            echo "Extracting image to: $image_location"
+            if ! test -e "$image_location"; then
+
+              if mkdir -p "$image_location"; then
+
+                echo "$image_location: Directory created"
+              else
+
+                echo "ERROR: $image_location directory not created"
+                exit 1
+              fi
+            fi
+            if tar -xf "$download_destination/$system" -C "$image_location"; then
+
+              echo "Image is ready"
+            else
+
+              echo "ERROR: Could not extract image"
+              exit 1
+            fi
+          else
+
+            echo "ERROR: Image download failed"
+            exit 1
+          fi
+        else
+
+          echo "ERROR: $image_provider_settings not available, please create file and add images server url to it"
+          exit 1
+        fi
+      fi
+
+      if cp -a "$obtain_image" "$image"; then
+
+        echo "$obtain_image deployed to: $image"
+      else
+
+        echo "$obtain_image was not deployed to: $image"
+        exit 1
+      fi
+    else
+
+      echo "ERROR: $image_location images location search path does not exist"
+      exit 1
+    fi
   else
 
     echo "ERROR: $image_location_settings not available, please create file and add absolute path to images to it"
