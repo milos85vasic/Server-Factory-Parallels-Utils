@@ -75,19 +75,20 @@ else
             fi
           else
 
-            echo "$compressed_image: Compressed image is already available"
+            echo "Compressed image is already available: $compressed_image"
           fi
 
-          echo "Extracting image to: $image_location"
-          if ! test -e "$image_location"; then
-            if ! mkdir -p "$image_location"; then
+          destination="$image_location/$system"
+          if ! test -e "$destination"; then
+            if ! mkdir -p "$destination"; then
 
-              echo "ERROR: $image_location directory not created"
+              echo "ERROR: $destination directory not created"
               exit 1
             fi
           fi
 
-          if tar -xf "$download_destination/$system.tar.gz" -C "$image_location"; then
+          echo "Uncompressing image"
+          if tar -xf "$download_destination/$system.tar.gz" -C "$destination"; then
 
             echo "Image is ready"
           else
@@ -121,5 +122,3 @@ else
     exit 1
   fi
 fi
-
-# TODO: Run machine
