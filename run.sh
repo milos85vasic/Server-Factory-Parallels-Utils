@@ -22,13 +22,11 @@ else
     if test -e "$image_location"; then
 
       echo "Images location search path: $image_location"
-      parent="$(basename "$(dirname "$image")")"
-      if ! test -e "$image"; then
-        if ! mkdir -p "$parent"; then
+      parent="$(dirname "$image")"
+      if ! mkdir -p "$parent"; then
 
-          echo "ERROR: $parent directory could not be created"
-          exit 1
-        fi
+        echo "ERROR: $parent directory could not be created"
+        exit 1
       fi
 
       system=$(basename "$image")
