@@ -80,16 +80,12 @@ else
 
           echo "Extracting image to: $image_location"
           if ! test -e "$image_location"; then
-
-            if mkdir -p "$image_location"; then
-
-              echo "$image_location: Directory created"
-            else
+            if ! mkdir -p "$image_location"; then
 
               echo "ERROR: $image_location directory not created"
               exit 1
-            fi
           fi
+
           if tar -xf "$download_destination/$system.tar.gz" -C "$image_location"; then
 
             echo "Image is ready"
