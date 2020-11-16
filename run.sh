@@ -1,7 +1,7 @@
 #!/bin/sh
 
-cat logo.txt && \
-cat version.txt
+cat logo.txt &&
+  cat version.txt
 echo ""
 
 image=$1
@@ -84,6 +84,7 @@ else
 
               echo "ERROR: $image_location directory not created"
               exit 1
+            fi
           fi
 
           if tar -xf "$download_destination/$system.tar.gz" -C "$image_location"; then
