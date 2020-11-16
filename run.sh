@@ -18,7 +18,25 @@ else
   image_provider_settings="image_provider.settings"
   if test -e "$image_location_settings"; then
 
+    download_destination=$(cat "$image_location_settings")/Compressed
     image_location=$(cat "$image_location_settings")/Uncompressed
+
+    if ! test -e "$download_destination"; then
+      if ! mkdir -p "$download_destination"; then
+
+        echo "ERROR: $download_destination was not created"
+        exit 1
+      fi
+    fi
+
+    if ! test -e "$image_location"; then
+      if ! mkdir -p "$image_location"; then
+
+        echo "ERROR: $image_location was not created"
+        exit 1
+      fi
+    fi
+
     if test -e "$image_location"; then
 
       echo "Images location search path: $image_location"
@@ -37,41 +55,47 @@ else
 
         echo "$obtain_image: Found, deploying to: $image"
       else
-
-        echo "WARNING: $obtain_image has not been found"
-        echo "Downloading: $system to $obtain_image"
-
         if test -e "$image_provider_settings"; then
 
           provider_url=$(cat "$image_provider_settings")
           url="$provider_url/Images/Parallels/$system.tar.gz"
-          download_destination="/tmp"
-          if wget -P "$download_destination" "$url"; then
+          compressed_image="$download_destination/$system.tar.gz"
+          if ! test -e "$compressed_image"; then
 
-            echo "Image downloaded"
-            echo "Extracting image to: $image_location"
-            if ! test -e "$image_location"; then
+            echo "WARNING: $obtain_image has not been found"
+            echo "Downloading: $system to $obtain_image"
 
-              if mkdir -p "$image_location"; then
+            if wget -P "$download_destination" "$url"; then
 
-                echo "$image_location: Directory created"
-              else
-
-                echo "ERROR: $image_location directory not created"
-                exit 1
-              fi
-            fi
-            if tar -xf "$download_destination/$system.tar.gz" -C "$image_location"; then
-
-              echo "Image is ready"
+              echo "Image downloaded"
             else
 
-              echo "ERROR: Could not extract image"
+              echo "ERROR: Image download failed"
               exit 1
             fi
           else
 
-            echo "ERROR: Image download failed"
+            echo "$compressed_image: Compressed image is already available"
+          fi
+
+          echo "Extracting image to: $image_location"
+          if ! test -e "$image_location"; then
+
+            if mkdir -p "$image_location"; then
+
+              echo "$image_location: Directory created"
+            else
+
+              echo "ERROR: $image_location directory not created"
+              exit 1
+            fi
+          fi
+          if tar -xf "$download_destination/$system.tar.gz" -C "$image_location"; then
+
+            echo "Image is ready"
+          else
+
+            echo "ERROR: Could not extract image"
             exit 1
           fi
         else
