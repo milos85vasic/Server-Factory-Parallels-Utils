@@ -130,3 +130,5 @@ else
 
   echo "The VM has been already registered"
 fi
+
+prlctl start "$(sh get_machine_id.sh "$image")"
