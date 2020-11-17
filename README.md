@@ -39,12 +39,13 @@ defined in  `image_location.settings` are matrices. So, for example, your
 while all working images  (ones that are executed and used in regular work) can be located in:
 `/Volumes/Your_Drive/Parallels/Using`. Paths that you will use are absolutely up to you.
 
-Once `publish_images.sh` is executed all [Parallels](https://www.parallels.com/) images located under 'Uncompressed' directory will be compressed into
-.tar.gz files and moved to 'Compressed' directory. Then, all compressed [Parallels](https://www.parallels.com/) images (.tar.gz) will
-be uploaded to remote endpoint by triggering `image_sync.sh` script.
+Once `publish_images.sh` is executed all [Parallels](https://www.parallels.com/) images located under 'Uncompressed' 
+directory will be compressed into .tar.gz files and moved to 'Compressed' directory. 
+Then, all compressed [Parallels](https://www.parallels.com/) images (.tar.gz) will be uploaded to 
+remote endpoint by triggering `image_sync.sh` script.
 
-Thanks to this you will be able to publish all your [Parallels](https://www.parallels.com/) images matrices 
-to the cloud and have them ready for any future use.
+Thanks to this you will be able to publish all your [Parallels](https://www.parallels.com/) images 
+matrices to the cloud and have them ready for any future use on any of your working computers.
 
 ### Retrieving and using published images
 
