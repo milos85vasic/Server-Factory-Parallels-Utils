@@ -19,4 +19,10 @@ See examples of each of these files in [Examples](./Examples) directory.
 
 ## How to use
 
-Tbd.
+There are the folowwing scripts that can be used:
+
+- `publish_images.sh` used to publish your Parallels images to remote endpoint
+- `run.sh` used to run your Parallels images
+
+### Publishing images
+
