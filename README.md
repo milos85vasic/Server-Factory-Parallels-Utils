@@ -33,10 +33,10 @@ subdirectories:
 - 'Uncompressed', used to contain [Parallels](https://www.parallels.com/) images (.pvm)
 
 When you install new system, copy its .pvm file into the 'Uncompressed' directory. Keep separate
-directories containing working images and 'matrices'. All contained inside `image_location.settings`
-settings directory are matrices. So, for example, your `image_location.settings` can point to:
-`/Volumes/Your_Drive/Parallels/Images` directory, while all working images 
-(ones that are executed and used in regular work) can be located in:
+directories containing working images (virtual machines) and 'matrices'. All contained inside the directory 
+defined in  `image_location.settings` are matrices. So, for example, your 
+`image_location.settings` can point to: `/Volumes/Your_Drive/Parallels/Images` directory, 
+while all working images  (ones that are executed and used in regular work) can be located in:
 `/Volumes/Your_Drive/Parallels/Using`. Paths that you will use are absolutely up to you.
 
 Once `publish_images.sh` is executed all [Parallels](https://www.parallels.com/) images located under 'Uncompressed' directory will be compressed into
