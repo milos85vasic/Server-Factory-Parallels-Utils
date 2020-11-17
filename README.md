@@ -2,6 +2,14 @@
 
 [Parallels](https://www.parallels.com/) utils for [Server Factory](https://github.com/milos85vasic/Server-Factory).
 
+Toolkit can be used as a part of [Server Factory](https://github.com/milos85vasic/Server-Factory) projects or
+completely independently. Main goal of this scripts toolkit is to provide the following:
+
+- Mechanism for compression and synchronization of users [Parallels](https://www.parallels.com/) images
+(matrices)
+- Mechanism for retrieving all published [Parallels](https://www.parallels.com/) images and further use
+on multiple computers.
+
 ## Requirements
 
 To be able to use [Parallels](https://www.parallels.com/) Utils the following dependencies must be installed:
