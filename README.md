@@ -57,4 +57,6 @@ matrices to the cloud and have them ready for any future use on any of your work
 
 ### Retrieving and using published images
 
-Tbd.
+To run [Parallels](https://www.parallels.com/) image (virtual machine) it is required to execute 
+`run.sh` script. Script accepts one argument, absolute path to .pvm file of your image (virtual machine).
+Absolute path must point to working version of the image (not the matrix).
