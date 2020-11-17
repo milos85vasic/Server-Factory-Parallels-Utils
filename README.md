@@ -3,12 +3,12 @@
 [Parallels](https://www.parallels.com/) utils for [Server Factory](https://github.com/milos85vasic/Server-Factory).
 
 Toolkit can be used as a part of [Server Factory](https://github.com/milos85vasic/Server-Factory) projects or
-completely independently. Main goal of this scripts toolkit is to provide the following:
+completely independently. Main goal of this toolkit is to provide the following:
 
-- Mechanism for compression and synchronization of users [Parallels](https://www.parallels.com/) images
-(matrices)
+- Mechanism for compression and synchronization of [Parallels](https://www.parallels.com/) images
+(matrices of systems used for development and testing)
 - Mechanism for retrieving all published [Parallels](https://www.parallels.com/) images and further use
-on multiple computers.
+on multiple computers (working stations, servers etc).
 
 ## Requirements
 
