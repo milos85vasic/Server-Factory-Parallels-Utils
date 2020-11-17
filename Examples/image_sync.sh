@@ -2,9 +2,9 @@
 
 source=$1
 where=$2
-user="statics.1.v1"
-password="StaticFnt@stIcZ1996"
-remote="red-elf.com:Content/www.red-elf.com/$where"
+user="your_user"
+password="your_password"
+remote="example.com:some/path/$where"
 
 echo "Synchronizing: $source -> $remote"
 sshpass -p "$password" rsync -azP -e 'ssh -p 7722' --delete "$source" "$user@$remote"
