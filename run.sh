@@ -131,4 +131,4 @@ else
   echo "The VM has been already registered"
 fi
 
-prlctl start "$(sh get_machine_id.sh "$image")"
+prlctl start "$(python get_machine_id.py "$image")"
