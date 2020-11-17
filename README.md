@@ -29,8 +29,8 @@ The following scripts can be used for work with [Parallels](https://www.parallel
 `image_location.settings` defines location of your images. Directory that is pointed here should have two 
 subdirectories:
 
-- Compressed, containing .tar.gz versions of [Parallels](https://www.parallels.com/) images
-- Uncompressed, containing [Parallels](https://www.parallels.com/) images
+- 'Compressed', used to contain .tar.gz versions of [Parallels](https://www.parallels.com/) images
+- 'Uncompressed', used to contain [Parallels](https://www.parallels.com/) images (.pvm)
 
 When you install new system, copy its .pvm file into the 'Uncompressed' directory. Keep separate
 directories containing working images and 'matrices'. All contained inside `image_location.settings`
