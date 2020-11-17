@@ -19,10 +19,10 @@ See examples of each of these files in [Examples](./Examples) directory.
 
 ## How to use
 
-There are the following scripts that can be used:
+The following scripts can be used for work with [Parallels](https://www.parallels.com/) images (and virtual machines):
 
 - `publish_images.sh` used to publish your [Parallels](https://www.parallels.com/) images to remote endpoint
-- `run.sh` used to run your [Parallels](https://www.parallels.com/) images
+- `run.sh` used to run your [Parallels](https://www.parallels.com/) images (virtual machines)
 
 ### Publishing images
 
