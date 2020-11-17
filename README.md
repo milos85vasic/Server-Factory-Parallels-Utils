@@ -60,3 +60,16 @@ matrices to the cloud and have them ready for any future use on any of your work
 To run [Parallels](https://www.parallels.com/) image (virtual machine) it is required to execute 
 `run.sh` script. Script accepts one argument, absolute path to .pvm file of your image (virtual machine).
 Absolute path must point to working version of the image (not the matrix).
+
+If absolute path and file exist [Parallels](https://www.parallels.com/) image will be executed and virtual machine started.
+If path (and) file do not exist all directories will be created. Then, the following will happen:
+
+- If 'Uncompressed' version of the image is available, it will be copied to our absolute path and 
+[Parallels](https://www.parallels.com/) image will be executed and virtual machine started
+
+- If 'Uncompressed' image is not available, but 'Compressed' one exists, .tar/gz file be uncompressed
+into 'Uncompressed' directory and everything from previous point done
+
+- If there is no 'Uncompressed' or 'Compressed' version of the image, .tar.gz file will be downloaded
+from the remote endpoint with base URl defined in `image_provider.settings`. After file is downloaded
+all from previous point will be done.
