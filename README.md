@@ -2,9 +2,20 @@
 
 Parallels utils for [Server Factory](https://github.com/milos85vasic/Server-Factory).
 
-## Notes
+## Requirements
 
-This set of Parallels management scripts is in proof of concept phase. It is not production ready.
+To be able to use Parallels Utils the following dependencies must be installed:
+
+- Parallels for your version of macOS
+- Python 3
+
+Following settings files have to be created:
+
+- `image_location.settings` defines location on your file system where Parallels images will be stored
+- `image_provider.settings` defines base URL for published Parallels images
+- `image_sync.sh` defines script for Parallels images publishing (upload)
+
+See examples of each of these files in [Examples](./Examples) directory.
 
 ## How to use
 
