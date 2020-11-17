@@ -122,3 +122,11 @@ else
     exit 1
   fi
 fi
+
+if ! prlctl list -a -i | grep "$image" >/dev/null 2>&1; then
+
+  prlctl register "$image"
+else
+
+  echo "The VM has been already registered"
+fi
