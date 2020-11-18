@@ -73,3 +73,7 @@ into 'Uncompressed' directory and everything from previous point done
 - If there is no 'Uncompressed' or 'Compressed' version of the image, .tar.gz file will be downloaded
 from the remote endpoint with base URl defined in `image_provider.settings`. After file is downloaded
 all from previous point will be done.
+
+## What's new?
+
+To see what is new in a current version please see [changelog](./CHANGELOG.md).
