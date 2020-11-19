@@ -1,6 +1,7 @@
 #!/usr/bin/python
-import sys
 import os
+import sys
+import time
 import xml.etree.ElementTree
 
 
@@ -24,7 +25,8 @@ def main():
                 for child in et.getroot().findall('.//Identification'):
                     for vm_name in child.findall('.//VmName'):
                         current_name = vm_name.text
-                        new_name = current_name + "zzz"
+                        millis = int(round(time.time() * 1000))
+                        new_name = current_name + " ID" + str(millis)
                         vm_name.text = new_name
                         et.write(file_path)
                         print("Machine name set to: " + new_name)
