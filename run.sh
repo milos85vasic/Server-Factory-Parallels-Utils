@@ -123,14 +123,19 @@ else
   fi
 fi
 
-# TODO: MSF-351
+if python set_machine_name.py "$image"; then
 
-if ! prlctl list -a -i | grep "$image" >/dev/null 2>&1; then
+  if ! prlctl list -a -i | grep "$image" >/dev/null 2>&1; then
 
-  prlctl register "$image"
+    prlctl register "$image"
+  else
+
+    echo "The VM has been already registered"
+  fi
+
+  prlctl start "$(python get_machine_id.py "$image")"
 else
 
-  echo "The VM has been already registered"
+  echo "ERROR: $image cannot setup machine name"
+  exit 1
 fi
-
-prlctl start "$(python get_machine_id.py "$image")"
