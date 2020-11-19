@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/sudo python
 import sys
 import os
 import xml.etree.ElementTree
@@ -11,8 +11,22 @@ def main():
         if os.path.exists(file_path):
             with open(file_path, 'r') as fp:
                 print(file_path + ": Configuration file")
+                """
+                    <ParallelsVirtualMachine dyn_lists="VirtualAppliance 0" schemaVersion="1.0">
+                       
+                       <Identification dyn_lists="">
+                       
+                          <VmName>CentOS Linux 8 xxx</VmName>
+                       </Identification>
+                    </ParallelsVirtualMachine
+                """
                 et = xml.etree.ElementTree.parse(file_path)
-                print(et)
+                for child in et.getroot().findall('.//Identification'):
+                    for vm_name in child.findall('.//VmName'):
+                        current_name = vm_name.text
+                        new_name = current_name + "zzz"
+                        vm_name.text = new_name
+                        et.write(file_path)
 
         else:
             print("ERROR: Configuration file was not found")
