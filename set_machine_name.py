@@ -26,7 +26,8 @@ def main():
                         current_name = vm_name.text
                         new_name = current_name + "zzz"
                         vm_name.text = new_name
-                        et.write(file_path)
+                        print(vm_name.text)
+                        # et.write(file_path)
 
         else:
             print("ERROR: Configuration file was not found")
