@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import sys
 import os
+import xml.etree.ElementTree
 
 
 def main():
@@ -10,6 +11,8 @@ def main():
         if os.path.exists(file_path):
             with open(file_path, 'r') as fp:
                 print(file_path + ": Configuration file")
+                et = xml.etree.ElementTree.parse(file_path)
+                print(et)
 
         else:
             print("ERROR: Configuration file was not found")
