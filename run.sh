@@ -123,6 +123,7 @@ else
   fi
 fi
 
+echo "Please provide your 'sudo' credentials to run Parallels virtual machine"
 if sudo python set_machine_name.py "$image"; then
 
   if ! prlctl list -a -i | grep "$image" >/dev/null 2>&1; then
