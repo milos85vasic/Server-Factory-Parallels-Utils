@@ -1,4 +1,4 @@
-#!/usr/bin/sudo python
+#!/usr/bin/python
 import sys
 import os
 import xml.etree.ElementTree
@@ -26,8 +26,8 @@ def main():
                         current_name = vm_name.text
                         new_name = current_name + "zzz"
                         vm_name.text = new_name
-                        print(vm_name.text)
-                        # et.write(file_path)
+                        et.write(file_path)
+                        print("Machine name set to: " + new_name)
 
         else:
             print("ERROR: Configuration file was not found")
