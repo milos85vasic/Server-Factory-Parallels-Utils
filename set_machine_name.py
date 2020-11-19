@@ -21,12 +21,19 @@ def main():
                        </Identification>
                     </ParallelsVirtualMachine
                 """
+                ext = "IDFR"
                 et = xml.etree.ElementTree.parse(file_path)
                 for child in et.getroot().findall('.//Identification'):
                     for vm_name in child.findall('.//VmName'):
-                        current_name = vm_name.text
                         millis = int(round(time.time() * 1000))
-                        new_name = current_name + " ID" + str(millis)
+                        addition = " " + ext + str(millis)
+                        current_name = vm_name.text
+                        if ext in current_name:
+
+                            parts = current_name.split(ext)
+                            new_name = parts[0].strip() + addition
+                        else:
+                            new_name = current_name + addition
                         vm_name.text = new_name
                         et.write(file_path)
                         print("Machine name set to: " + new_name)
