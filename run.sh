@@ -134,7 +134,18 @@ if sudo python set_machine_name.py "$image"; then
     echo "The VM has been already registered"
   fi
 
-  prlctl start "$(python get_machine_id.py "$image")"
+  if prlctl start "$(python get_machine_id.py "$image")"; then
+
+    if ! open -a "Parallels Desktop"; then
+
+      echo "ERROR: could not start 'Parallels Desktop'"
+      exit 1
+    fi
+  else
+
+    echo "ERROR: $image could not start"
+    exit 1
+  fi
 else
 
   echo "ERROR: $image cannot setup machine name"
