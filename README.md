@@ -10,6 +10,8 @@ completely independently. Main goal of this toolkit is to provide the following:
 - Mechanism for retrieving all published [Parallels](https://www.parallels.com/) images and further use
 on multiple computers (working stations, servers etc).
 
+## Quick start video tutorial 
+
 [![Parallels Utils Video tutorial](https://i.imgur.com/6Xs1vf6.png)](https://www.youtube.com/watch?v=7raTkPZaYxQ)
 
 ## Requirements
