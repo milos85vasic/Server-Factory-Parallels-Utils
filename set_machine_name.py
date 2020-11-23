@@ -17,7 +17,7 @@ def main():
                        
                        <Identification dyn_lists="">
                        
-                          <VmName>CentOS Linux 8 xxx</VmName>
+                          <VmName>VM_NAME</VmName>
                        </Identification>
                     </ParallelsVirtualMachine
                 """
