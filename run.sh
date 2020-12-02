@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cat logo.txt &&
-  cat version.txt
+  cat version.txt && printf " (" && cat version_code.txt && printf ")"
 echo ""
 
 image=$1
